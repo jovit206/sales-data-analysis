@@ -1,3 +1,4 @@
+
 # Sales Data Analysis Project
 
 ## Tools Used
@@ -16,3 +17,7 @@ Analyzed sales data to find business insights, stored data in MySQL, and built a
 
 ## Outcome
 This project demonstrates end-to-end data analysis using Python, SQL, and ML.
+
+# sales-data-analysis
+Sales data analysis using Python, MySQL and Machine Learning
+
