@@ -1,10 +1,8 @@
 import pandas as pd
 import mysql.connector
 
-# Load data
 df = pd.read_csv("superstore.csv", encoding='latin1')
 
-# Connect to MySQL
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
@@ -14,7 +12,6 @@ conn = mysql.connector.connect(
 
 cursor = conn.cursor()
 
-# Create table
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS sales_data (
     Order_ID VARCHAR(50),
@@ -27,7 +24,6 @@ CREATE TABLE IF NOT EXISTS sales_data (
 )
 """)
 
-# Insert data (only 500 rows)
 for i, row in df.head(500).iterrows():
     cursor.execute("""
     INSERT INTO sales_data 
@@ -46,7 +42,6 @@ for i, row in df.head(500).iterrows():
 conn.commit()
 print("Data inserted into MySQL!")
 
-# Query
 cursor.execute("""
 SELECT Region, SUM(Sales)
 FROM sales_data
